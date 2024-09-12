@@ -1,3 +1,6 @@
+import { Heart, Home } from "lucide-react"
+import { Link } from "react-router-dom"
+
 const SideBar = () => {
   return (
     <>
@@ -17,7 +20,14 @@ const DesktopSidebar = () => {
                     <img src="/mobile-logo.svg" alt="logo" className="block md:hidden" />
                 </div>
                 <ul className="flex flex-col items-center md:items-start gap-8">
-                    
+                    <Link to={"/"} className="flex gap-1">
+                    <Home size={24}/>
+                    <span className="font-bold hidden md:block">Home</span>
+                    </Link>
+                    <Link to={"/favorites"} className="flex gap-1">
+                    <Heart size={24}/>
+                    <span className="font-bold hidden md:block">Favorites</span>
+                    </Link>
                 </ul>
             </div>
         </div>
