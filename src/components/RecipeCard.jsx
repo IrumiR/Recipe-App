@@ -9,8 +9,14 @@ const RecipeCard = ({ recipe, bg, badge }) => {
   const healthLabels = getTwoValuesFromArray(recipe.healthLabels);
 
   return (
-    <div className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}>
-      <a href="#" className="relative h-32">
+    <div
+      className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}
+    >
+      <a
+        href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
+        target="_blank"
+        className="relative h-32"
+      >
         <img
           src={recipe.image}
           alt="recipe img"
