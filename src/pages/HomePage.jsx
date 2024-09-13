@@ -30,10 +30,15 @@ const HomePage = () => {
     fetchRecipes("chicken");
   }, []);
 
+  const handleSearchRecipe = (e) => {
+    e.preventDefault();
+    fetchRecipes(e.target[0].value);
+  };
+
   return (
     <div className="bg-[#faf9fb] p-10 flex-1">
       <div className="max-w-screen-lg mx-auto">
-        <form>
+        <form onSubmit={handleSearchRecipe}>
           <label className="input shadow-md flex items-center gap-2">
             <Search size={24} />
             <input
@@ -53,7 +58,7 @@ const HomePage = () => {
         <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {!loading &&
             recipes.map(({ recipe }, index) => (
-              <RecipeCard key={index} recipe={recipe} {...getRandomColor()}/> 
+              <RecipeCard key={index} recipe={recipe} {...getRandomColor()} />
             ))}
 
           {loading &&
